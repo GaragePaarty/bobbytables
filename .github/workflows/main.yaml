@@ -1,5 +1,5 @@
 name: Leaked Secrets Scan on PR
-on: [pull_request]
+on: [pull_request, push]
 jobs:
   TruffleHog-PR:
     runs-on: ubuntu-latest
