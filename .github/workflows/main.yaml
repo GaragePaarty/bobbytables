@@ -1,4 +1,4 @@
-name: Leaked Secrets Scan on PR
+name: Leaked Secrets Scan on PR and Push
 on: [pull_request, push]
 jobs:
   TruffleHog-PR:
