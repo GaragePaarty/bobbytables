@@ -1,7 +1,7 @@
 name: Leaked Secrets Scan on PR
 on: [pull_request]
 jobs:
-  TruffleHog:
+  TruffleHog-PR:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -16,10 +16,7 @@ jobs:
           head: HEAD
           extra_args: --debug --only-verified
             
-name: Leaked Secrets Scan on Push
-on: [push]
-jobs:
-  TruffleHog:
+  TruffleHog-Push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
