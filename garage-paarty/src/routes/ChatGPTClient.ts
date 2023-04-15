@@ -13,7 +13,8 @@ export class ChatGPTClient {
             'Authorization': `Bearer ${this.apiKey}`,
           },
           body: JSON.stringify({
-            prompt: prompt,
+            model: "gpt-3.5-turbo",
+            messages: [{"role": "user", "content": prompt}], 
             max_tokens: 50,
             n: 1,
             temperature: 0.7,
@@ -21,14 +22,14 @@ export class ChatGPTClient {
           }),
         };
       
-        const response = await fetch('https://api.openai.com/v1/engines/text-davinci-002/completions', requestOptions);
+        const response = await fetch('https://api.openai.com/v1/chat/completions', requestOptions);
         if (!response.ok) {
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
       
         const result = await response.json();
         
-        if (!result.choices || !result.choices[0] || !result.choices[0].text) {
+        if (!result.choices || !result.choices[0] || !result.choices[0].message) {
           throw new Error('Unexpected API response format');
         }
       

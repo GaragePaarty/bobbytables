@@ -22,7 +22,7 @@
 		const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 		const chatGPTClient = new ChatGPTClient(apiKey);
 		const result = await chatGPTClient.getCompletion(prompt);
-		return result.text.trim();
+		return result.message.content.trim();
 	}
 
 	// Fetch the response on page load
