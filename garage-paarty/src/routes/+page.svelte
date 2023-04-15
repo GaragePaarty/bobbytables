@@ -19,8 +19,7 @@
 
 	// Get ChatGPT response
 	async function getChatGPTResponse(prompt: string) {
-		const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-		const chatGPTClient = new ChatGPTClient(apiKey);
+		const chatGPTClient = new ChatGPTClient();
 		const result = await chatGPTClient.getCompletion(prompt);
 		return result.message.content.trim();
 	}
