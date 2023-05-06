@@ -1,4 +1,4 @@
-export class ChatGPTClient {
+export class GPTClient {
 	private apiKey: string;
 
 	constructor() {

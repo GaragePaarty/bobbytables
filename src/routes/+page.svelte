@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { ChatGPTClient } from './ChatGPTClient';
+	import { GPTClient } from './GPTClient';
 
 	let prompts = [
 		'What are some fun garage party activities?',
@@ -19,8 +19,8 @@
 
 	// Get ChatGPT response
 	async function getChatGPTResponse(prompt: string) {
-		const chatGPTClient = new ChatGPTClient();
-		const result = await chatGPTClient.getCompletion(prompt);
+		const gptClient = new GPTClient();
+		const result = await gptClient.getCompletion(prompt);
 		return result.message.content.trim();
 	}
 
